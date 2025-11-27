@@ -8,31 +8,33 @@ body {
   font-family: system-ui, sans-serif;
   background-color: #fff;
   color: #000;
-  padding: 40px;
+  /* щоб сторінка займала всю ширину без відступів */
+  padding: 0;
   line-height: 1.4;
 }
 
-
+/* ГОЛОВНА СІТКА: тягнеться на всю ширину, колонки – відносні */
 .layout-grid {
   display: grid;
-  grid-template-columns: 150px 10px 500px;
+  grid-template-columns: minmax(0, 1.2fr) 10px minmax(0, 2fr);
   grid-template-rows: auto;
   column-gap: 0;
   row-gap: 0;
-  width: max-content;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
   border: 1px solid #0000;
   color: #000;
   background-color: transparent;
 }
 
-
+/* ЛІВА КОЛОНКА: висота формується вмістом, без жорстких значень */
 .left-col {
   grid-column: 1;
   display: grid;
-  grid-template-rows: 1fr 120px;
+  grid-template-rows: auto auto;
   border: 1px solid #999;
   border-right: none;
-  min-height: 600px;
 }
 
 .box1 {
@@ -44,6 +46,7 @@ body {
   justify-content: center;
   text-align: left;
 }
+
 .box4 {
   background-color: #e6f0d5;
   padding: 16px;
@@ -53,27 +56,25 @@ body {
   text-align: left;
 }
 
-
+/* ПРОМІЖОК МІЖ КОЛОНКАМИ – фіксована ширина, але висота теж від вмісту */
 .gutter {
   grid-column: 2;
   background-color: #fff;
   border-left: 1px solid #999;
   border-right: 1px solid #999;
-  min-height: 600px;
 }
 
-
+/* ПРАВА КОЛОНКА: без мінімальної висоти, рядки по контенту */
 .right-col {
   grid-column: 3;
   display: grid;
-  grid-template-rows: 160px 1fr 200px;
+  grid-template-rows: auto auto auto;
   border: 1px solid #999;
   border-left: none;
-  min-height: 600px;
   background-color: #fff;
 }
 
-
+/* БЛОК 2 */
 .box2 {
   background-color: #c7d5ef;
   border-bottom: 1px solid #000;
@@ -84,10 +85,10 @@ body {
   gap: 20px;
 }
 
-
 .box2-left {
   flex: 0 0 auto;
 }
+
 .slogan {
   font-size: 20px;
   font-weight: 600;
@@ -98,22 +99,22 @@ body {
   display: inline-block;
 }
 
-
 .box2-right {
   flex: 1 1 auto;
   font-size: 16px;
 }
 
-
+/* БЛОК 3 */
 .box3 {
   background-color: #fff;
   border-bottom: 1px solid #000;
   padding: 20px;
   font-size: 16px;
+  /* можна залишити скрол, якщо тексту буде дуже багато */
   overflow-y: auto;
 }
 
-
+/* БЛОК 5 */
 .box5 {
   background-color: #c7d5ef;
   padding: 20px;
@@ -124,18 +125,17 @@ body {
   flex-wrap: wrap;
 }
 
-
 .box5-left {
   flex: 0 0 auto;
   font-weight: 600;
   font-size: 28px;
   line-height: 1;
 }
+
 .label-num {
   font-size: 28px;
   font-weight: 600;
 }
-
 
 .box5-right {
   flex: 1 1 auto;
@@ -152,40 +152,46 @@ body {
   margin-bottom: 12px;
 }
 
-
+/* НАВІГАЦІЯ */
 .main-nav {
   list-style: disc;
   padding-left: 20px;
   font-size: 16px;
 }
+
 .main-nav li {
   margin-bottom: 6px;
 }
+
 .main-nav a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
 }
+
 .main-nav a:hover {
   text-decoration: underline;
 }
 
-
+/* ТЕКСТ */
 .text-wrapper p {
   margin-bottom: 12px;
   font-size: 16px;
   color: #000;
 }
+
 .section-title {
   margin: 20px 0 8px 0;
   font-size: 18px;
   font-weight: 600;
   color: #000;
 }
+
 .prep-steps {
   padding-left: 20px;
   font-size: 16px;
 }
+
 .prep-steps li {
   margin-bottom: 6px;
 }
